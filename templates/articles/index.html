@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/articles.css' %}">
+</head>
+<h1>SkillCheck</h1>
+
+<body>
+<div class="header">
+</div>
+
+<div class="contents" id="contents_area">
+  {% for article in articles %}
+  <div class="article">
+    {{ article.text }}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="form-area">
+  <div class="form">
+    <form method="post">
+      {% csrf_token %}
+      <input type="text" name="text" class="article_form" id="article_text">
+      <div id="char_num">
+      0文字
+      </div>
+      <button type="submit" id="submit_btn">POST</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

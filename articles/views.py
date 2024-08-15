@@ -5,7 +5,7 @@ from .forms  import PostArticleForm
 
 
 class IndexView(View):
-  def get(self,request,*args,**kwargs):
+  def get(self, request, *args, **kwargs):
     articles =  Article.objects.all().order_by('-created_at')
     form = PostArticleForm()
     return render(request, 'articles/index.html', {'articles': articles, 'form': form})
@@ -14,4 +14,4 @@ class IndexView(View):
     form = PostArticleForm(request.POST)
     if form.is_valid():
       form.save()
-      return redirect('articles:index')
+    return redirect('articles:index')

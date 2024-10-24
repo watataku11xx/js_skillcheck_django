@@ -27,6 +27,8 @@ function post() {
               </div>`;
             contentsArea.insertAdjacentHTML('afterbegin', html);
             form.reset();
+            const charNum  = document.getElementById("char_num");
+            charNum.innerHTML = "0文字";
         })
         .catch(error => {
             console.error('Error:', error);

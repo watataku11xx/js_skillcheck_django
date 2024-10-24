@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.views import View
 from articles.models import Article
 from .forms  import PostArticleForm
@@ -13,5 +14,7 @@ class IndexView(View):
   def post(self, request, *args, **kwargs):
     form = PostArticleForm(request.POST)
     if form.is_valid():
-      form.save()
-    return redirect('articles:index')
+      article = form.save()
+      return JsonResponse({ 
+        'text': article.text,
+      })

@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'js_skillcheck_django',
         'USER': 'postgres',
-        'PASSWORD': 'admin', # ご自身で設定したパスワード
+        'PASSWORD': 'password', # ご自身で設定したパスワード
         'HOST': 'localhost',
         'PORT': '5432',
     }
